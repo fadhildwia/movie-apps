@@ -9,7 +9,7 @@ import Header from './components/Header';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-primary">
+      <div className="flex flex-col min-h-screen bg-primary scroll-smooth">
         <Header />
         <main className="flex-grow p-4">
           <Routes>

@@ -20,7 +20,7 @@ const MovieCard: React.FC<{ movie: MovieInterface }> = ({ movie }) => {
 
         <div className="relative px-4 -mt-16">
           <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col">
-            <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+            <h4 className="mt-1 text-xl font-bold uppercase leading-tight truncate">
               {movie.Title}
             </h4>
 
