@@ -1,9 +1,11 @@
-interface MovieInterface {
+export interface MovieInterface {
   imdbID: string;
   Title: string;
   Type: string;
   Year: string;
   Poster: string;
+  Price?: number
+  Genre?: string
 }
 
 export interface FetchMoviesResponse {
