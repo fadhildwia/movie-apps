@@ -24,11 +24,13 @@ const CartPage: React.FC = () => {
       dispatch(removeFromCart(id));
   };
 
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalPrice = cart.reduce((total, item) => total + (calculatePrice(item?.Year as string) * item.quantity), 0);
   return (
     <div className="container mx-auto py-8">
       <Breadcrumb title="Cart" />
       {cart.length > 0 ? (
-        <>
+        <div className='flex flex-col gap-4'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             {cart.map((movie: CartInterface, index) => (
               <div key={index} className="flex bg-white shadow-lg rounded-lg">
@@ -54,14 +56,22 @@ const CartPage: React.FC = () => {
               </div>
             ))}
           </div>
-          {cart.length > 0 && (
-            <div className="mt-4 flex text-center">
-              <Link to="/checkout" className="w-full px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-600 focus:outline-none text-3xl uppercase font-bold">
-                Checkout
-              </Link>
+          <div className=' bg-gray-800 text-white flex flex-col gap-2 p-4 font-semibold text-lg'>
+            <div className='flex justify-between gap-2'>
+              <p>Total Item:</p>
+              <p> {totalQuantity}</p>
             </div>
-          )}
-        </>
+            <div className='flex justify-between gap-2'>
+              <p>Total Price:</p>
+              <p> {formatCurrency(totalPrice)}</p>
+            </div>
+          </div>
+          <div className="flex text-center">
+            <Link to="/checkout" className="w-full px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-600 focus:outline-none text-3xl uppercase font-bold">
+              Checkout
+            </Link>
+          </div>
+        </div>
       ) : (
         <div>You currently have no items in your cart</div>
       )}
