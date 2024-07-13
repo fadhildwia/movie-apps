@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-gray-800 fixed w-full z-50">
       <div className="container px-4 md:px-0 mx-auto py-4 flex justify-between items-center">
         <Link to="/" className="text-base md:text-2xl font-bold text-gray-50">Movie Apps</Link>
         <div className='flex justify-center items-center gap-4'>

@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col min-h-screen bg-primary scroll-smooth">
         <Header />
-        <main className="flex-grow p-4">
+        <main className="flex-grow p-4 pt-24">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/movie/:id" element={<MovieDetailPage />} />
