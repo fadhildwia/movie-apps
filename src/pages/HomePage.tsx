@@ -5,9 +5,14 @@ import MovieCard from '../components/MovieCard';
 import { calculatePrice } from '../utils/calculatePrice';
 import Pagination from '../components/Pagination';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
+import { MovieInterface } from '../types';
 
 const HomePage: React.FC = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
+
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get('search') || 'batman';
 
@@ -19,6 +24,11 @@ const HomePage: React.FC = () => {
     setPage(page);
   };
 
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>, data: MovieInterface) => {
+    event.preventDefault();
+    dispatch(addToCart({ ...data, quantity: 1 }));
+  };
+
   return (
     <>
       <Loader enabled={loadingMovie} />
@@ -28,6 +38,7 @@ const HomePage: React.FC = () => {
             <MovieCard
               key={movie.imdbID}
               movie={{ ...movie, Price: calculatePrice(movie.Year) }}
+              onClick={(e) => handleAddToCart(e, movie)}
             />
           ))
         ) : null}

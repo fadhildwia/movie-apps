@@ -41,3 +41,7 @@ export interface FetchMovieDetailResponse extends MovieInterface {
   imdbRating: string;
   imdbVotes: string;
 }
+
+export interface CartInterface extends MovieInterface {
+  quantity: number
+}
