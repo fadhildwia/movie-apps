@@ -19,20 +19,12 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
     return pageNumbers;
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <nav className="flex items-center text-gray-800">
       <button
         className={`p-2 mr-4 rounded ${currentPage === 1 ? '' : 'hover:bg-gray-100'}`}
         onClick={() => {
           onPageChange(currentPage - 1);
-          scrollToTop();
         }}
         disabled={currentPage === 1}
       >
@@ -48,7 +40,6 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
           }`}
           onClick={() => {
             onPageChange(page);
-            scrollToTop();
           }}
         >
           {page}
@@ -58,7 +49,6 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         className={`p-2 mr-4 rounded ${currentPage === totalPages ? '' : 'hover:bg-gray-100'}`}
         onClick={() => {
           onPageChange(currentPage + 1);
-          scrollToTop();
         }}
         disabled={currentPage === totalPages}
       >
