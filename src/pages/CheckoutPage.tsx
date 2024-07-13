@@ -12,7 +12,7 @@ const CheckoutPage: React.FC = () => {
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = cart.reduce((total, item) => total + (calculatePrice(item?.Year as string) * item.quantity), 0);
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto">
       <Breadcrumb title="Checkout" />
       {cart.length > 0 ? (
         <div className='flex flex-col gap-4'>

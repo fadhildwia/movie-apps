@@ -38,7 +38,7 @@ const MovieDetailPage: React.FC = () => {
       {loadingDetailMovie ? (
         <Loader enabled={loadingDetailMovie} />
       ) : (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto px-4">
           <Breadcrumb title={detailMovie?.Title as string} />
           <div className="flex items-center flex-wrap md:flex-nowrap gap-8">
             <img src={detailMovie?.Poster} alt={detailMovie?.Title} className="rounded-lg w-64 h-auto" />
