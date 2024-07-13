@@ -4,11 +4,13 @@ import HomePage from './pages/HomePage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import Header from './components/Header';
 
 const App: React.FC = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <Header />
         <main className="flex-grow p-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
