@@ -52,7 +52,7 @@
    ```
 4. #### Make a copy of `.env.example` to `.env`:
    ```bash
-   # Put your Rapid API credential in .env file
+   # Put your OMDB API credential in .env file
    cp .env.example .env
    ```
 5. #### Run the project:
